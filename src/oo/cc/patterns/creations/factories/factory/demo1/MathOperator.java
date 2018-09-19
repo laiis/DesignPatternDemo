@@ -3,7 +3,9 @@ package oo.cc.patterns.creations.factories.factory.demo1;
 /**
  * Created by laiis on 2018/9/18.
  */
-public interface Creator {
+public interface MathOperator<T> {
 
-    Product makeProduct();
+    T getResult(T m, T n);
+
+    String getOperator();
 }

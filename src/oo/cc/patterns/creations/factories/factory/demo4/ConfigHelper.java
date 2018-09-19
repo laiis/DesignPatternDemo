@@ -1,4 +1,4 @@
-package oo.cc.patterns.creations.factories.factory.demo3;
+package oo.cc.patterns.creations.factories.factory.demo4;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
