@@ -7,6 +7,6 @@ public class VolunteerFactory implements IFactory {
 
     @Override
     public LeiFengStyle createLeiFeng() {
-        return new Volunteer();
+        return new Volunteer("來自工廠的學雷鋒的志願者");
     }
 }

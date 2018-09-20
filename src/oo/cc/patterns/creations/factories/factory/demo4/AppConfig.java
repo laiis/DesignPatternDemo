@@ -9,6 +9,7 @@ public interface AppConfig {
 
     String REPO_TYPE = "REPO_TYPE";
 
+    String UNION_REPO = "UNION_REPO";
     String LOCAL_REPO = "LOCAL_REPO";
     String REMOTE_REPO = "REMOTE_REPO";
 

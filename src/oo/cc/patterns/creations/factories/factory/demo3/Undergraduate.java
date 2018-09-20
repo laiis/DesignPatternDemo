@@ -5,4 +5,7 @@ package oo.cc.patterns.creations.factories.factory.demo3;
  */
 public class Undergraduate extends LeiFeng {
 
+    public Undergraduate(String name) {
+        super(name);
+    }
 }

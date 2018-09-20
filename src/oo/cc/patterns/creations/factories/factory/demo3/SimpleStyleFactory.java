@@ -14,9 +14,9 @@ public class SimpleStyleFactory {
 
         switch (styleType) {
             case UNDERGRADUTE:
-                return new Undergraduate();
+                return new Undergraduate("學雷鋒的大學生");
             case LEIFENG:
-                return new Volunteer();
+                return new Volunteer("學雷鋒的志願者");
             default:
                 return null;
         }

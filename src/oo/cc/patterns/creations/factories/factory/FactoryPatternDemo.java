@@ -4,10 +4,7 @@ import oo.cc.patterns.creations.factories.factory.demo2.*;
 import oo.cc.patterns.creations.factories.factory.demo1.*;
 import oo.cc.patterns.creations.factories.factory.demo1.OperationFactory;
 import oo.cc.patterns.creations.factories.factory.demo3.*;
-import oo.cc.patterns.creations.factories.factory.demo4.AppConfig;
-import oo.cc.patterns.creations.factories.factory.demo4.ConfigHelper;
-import oo.cc.patterns.creations.factories.factory.demo4.Repo;
-import oo.cc.patterns.creations.factories.factory.demo4.WareHouse;
+import oo.cc.patterns.creations.factories.factory.demo4.*;
 
 /**
  * Created by laiis on 2018/9/18.
@@ -43,16 +40,24 @@ public class FactoryPatternDemo {
         product.complete();
 
         // DEMO 3
-        LeiFengStyle one = new Undergraduate();
-        LeiFengStyle two = new Undergraduate();
-        LeiFengStyle three = new Undergraduate();
+        LeiFengStyle one = new Undergraduate("學雷鋒的大學生one");
+        LeiFengStyle two = new Undergraduate("學雷鋒的大學生two");
+        LeiFengStyle three = new Undergraduate("學雷鋒的大學生three");
 
         one.buyRice();
         two.sweep();
         three.wash();
 
-        UndergraduteFactory undergraduteFactory = new UndergraduteFactory();
-        LeiFengStyle leiFengStyle = undergraduteFactory.createLeiFeng();
+        LeiFengStyle leiFengStyle = null;
+
+        IFactory undergraduteFactory = new UndergraduteFactory();
+        leiFengStyle = undergraduteFactory.createLeiFeng();
+        leiFengStyle.buyRice();
+        leiFengStyle.sweep();
+        leiFengStyle.wash();
+
+        IFactory volunteerFactory = new VolunteerFactory();
+        leiFengStyle = volunteerFactory.createLeiFeng();
         leiFengStyle.buyRice();
         leiFengStyle.sweep();
         leiFengStyle.wash();
@@ -67,10 +72,12 @@ public class FactoryPatternDemo {
          */
         ConfigHelper.initial(AppConfig.CONFIG_PROPERTIES);
 
+        // type 1
         Repo repo = getRepoByAppConfig(AppConfig.REPO_TYPE);
         WareHouse wareHouse = repo.getWareHouse();
         wareHouse.update();
 
+        // type 2
         Repo localRepo = getRepoByAppConfig(AppConfig.LOCAL_REPO);
         wareHouse = localRepo.getWareHouse();
         wareHouse.update();
@@ -78,6 +85,15 @@ public class FactoryPatternDemo {
         Repo remoteRepo = getRepoByAppConfig(AppConfig.REMOTE_REPO);
         wareHouse = remoteRepo.getWareHouse();
         wareHouse.update();
+
+        // type 3
+        /*
+         * 延伸需求:
+         * 1. 儲存處要做例行性維護作業
+         * 2. 例行性維護作業有 SOP 流程
+         */
+        UnionRepo unionRepo = getRepoByAppConfig(AppConfig.UNION_REPO);
+        unionRepo.maintance();
 
     }
 
@@ -101,10 +117,10 @@ public class FactoryPatternDemo {
     }
 
 
-    private static Repo getRepoByAppConfig(String repoType) {
+    private static <T extends Repo> T getRepoByAppConfig(String repoType) {
         try {
             Class<?> clz = Class.forName(ConfigHelper.newInstance().getValue(repoType));
-            Repo repo = (Repo) clz.newInstance();
+            T repo = (T) clz.newInstance();
             return repo;
         } catch (Exception e) {
             e.printStackTrace();

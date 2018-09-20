@@ -7,6 +7,6 @@ public class UndergraduteFactory implements IFactory {
 
     @Override
     public LeiFengStyle createLeiFeng() {
-        return new Undergraduate();
+        return new Undergraduate("來自工廠的學雷鋒的大學生");
     }
 }

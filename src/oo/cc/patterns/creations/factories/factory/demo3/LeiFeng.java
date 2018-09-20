@@ -5,18 +5,24 @@ package oo.cc.patterns.creations.factories.factory.demo3;
  */
 public class LeiFeng implements LeiFengStyle {
 
+    private String name = "";
+
+    public LeiFeng(String name) {
+        this.name = name;
+    }
+
     @Override
     public void sweep() {
-        System.out.println("掃地");
+        System.out.println(name + "掃地");
     }
 
     @Override
     public void wash() {
-        System.out.println("洗衣");
+        System.out.println(name + "洗衣");
     }
 
     @Override
     public void buyRice() {
-        System.out.println("買米");
+        System.out.println(name + "買米");
     }
 }
