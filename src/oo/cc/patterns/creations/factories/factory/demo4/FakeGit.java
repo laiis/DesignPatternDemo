@@ -7,7 +7,7 @@ public class FakeGit implements WareHouse {
 
     @Override
     public void save() {
-
+        System.out.println("save date by Git");
     }
 
     @Override

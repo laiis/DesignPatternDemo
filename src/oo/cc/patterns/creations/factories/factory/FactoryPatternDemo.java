@@ -93,6 +93,8 @@ public class FactoryPatternDemo {
          * 2. 例行性維護作業有 SOP 流程
          */
         UnionRepo unionRepo = getRepoByAppConfig(AppConfig.UNION_REPO);
+        unionRepo.save();
+        unionRepo.update();
         unionRepo.maintance();
 
     }

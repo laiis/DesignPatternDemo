@@ -7,7 +7,8 @@ public abstract class UnionRepo implements Repo, DataAction {
 
     @Override
     public void save() {
-
+        WareHouse wareHouse = getWareHouse();
+        wareHouse.save();
     }
 
     @Override
