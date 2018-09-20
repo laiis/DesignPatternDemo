@@ -39,7 +39,7 @@ public class ConfigHelper {
 
     }
 
-    public void setProperties(Properties properties) {
+    private void setProperties(Properties properties) {
         this.properties = properties;
     }
 
