@@ -3,24 +3,12 @@ package oo.cc.patterns.creations.factories.factory.demo4;
 /**
  * Created by laiis on 2018/9/20.
  */
-public abstract class UnionRepo implements Repo, DataAction {
-
-    @Override
-    public void save() {
-        WareHouse wareHouse = getWareHouse();
-        wareHouse.save();
-    }
-
-    @Override
-    public void update() {
-        WareHouse wareHouse = getWareHouse();
-        wareHouse.update();
-    }
+public abstract class UnionRepo implements Repo {
 
     public final void maintance() {
         System.out.println("maintain start");
         System.out.println("ba ba la ba ba~ ");
-        update();
+        getWareHouse().update();
         System.out.println("maintain end");
     }
 
