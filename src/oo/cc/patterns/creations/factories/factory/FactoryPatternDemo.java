@@ -13,55 +13,55 @@ public class FactoryPatternDemo {
 
     public static void main(String[] args) {
         // DEMO 1
-        MathOperator<Integer> plus = OperationFactory.createOperate("+");
-        showOperation(5, 10, plus);
-        MathOperator<Integer> minus = OperationFactory.createOperate("-");
-        showOperation(5, 10, minus);
+//        MathOperator<Integer> plus = OperationFactory.createOperate("+");
+//        showOperation(5, 10, plus);
+//        MathOperator<Integer> minus = OperationFactory.createOperate("-");
+//        showOperation(5, 10, minus);
+//
+//        System.out.println("~~~~~~~~");
+//
+//        operating(5, 10, new PlusFactory());
+//        operating(5, 10, new MinusFactory());
+//
+//        System.out.println("~~~~~~~~");
+//
+//        operating(5, 10, PlusFactory.class.getName());
+//        operating(5, 10, MinusFactory.class.getName());
 
-        System.out.println("~~~~~~~~");
-
-        operating(5, 10, new PlusFactory());
-        operating(5, 10, new MinusFactory());
-
-        System.out.println("~~~~~~~~");
-
-        operating(5, 10, PlusFactory.class.getName());
-        operating(5, 10, MinusFactory.class.getName());
-
-        // DEMO 2
-        BadProduct badProduct = new BadProduct();
-        badProduct.complete();
-
-        Product uselessProduct = new UselessProduct();
-        uselessProduct.complete();
-
-        Creator creator = new ConcreteCreator();
-        Product product = creator.makeProduct();
-        product.complete();
+//        // DEMO 2
+//        BadProduct badProduct = new BadProduct();
+//        badProduct.complete();
+//
+//        Product uselessProduct = new UselessProduct();
+//        uselessProduct.complete();
+//
+//        Creator creator = new ConcreteCreator();
+//        Product product = creator.makeProduct();
+//        product.complete();
 
         // DEMO 3
-        LeiFengStyle one = new Undergraduate("學雷鋒的大學生one");
-        LeiFengStyle two = new Undergraduate("學雷鋒的大學生two");
-        LeiFengStyle three = new Undergraduate("學雷鋒的大學生three");
-
-        one.buyRice();
-        two.sweep();
-        three.wash();
-
-        LeiFengStyle leiFengStyle = null;
-
-        IFactory undergraduteFactory = new UndergraduteFactory();
-        leiFengStyle = undergraduteFactory.createLeiFeng();
-        leiFengStyle.buyRice();
-        leiFengStyle.sweep();
-        leiFengStyle.wash();
-
-        IFactory volunteerFactory = new VolunteerFactory();
-        leiFengStyle = volunteerFactory.createLeiFeng();
-        leiFengStyle.buyRice();
-        leiFengStyle.sweep();
-        leiFengStyle.wash();
-
+//        LeiFengStyle one = new Undergraduate("學雷鋒的大學生one");
+//        LeiFengStyle two = new Undergraduate("學雷鋒的大學生two");
+//        LeiFengStyle three = new Undergraduate("學雷鋒的大學生three");
+//
+//        one.buyRice();
+//        two.sweep();
+//        three.wash();
+//
+//        LeiFengStyle leiFengStyle = null;
+//
+//        IFactory undergraduteFactory = new UndergraduteFactory();
+//        leiFengStyle = undergraduteFactory.createLeiFeng();
+//        leiFengStyle.buyRice();
+//        leiFengStyle.sweep();
+//        leiFengStyle.wash();
+//
+//        IFactory volunteerFactory = new VolunteerFactory();
+//        leiFengStyle = volunteerFactory.createLeiFeng();
+//        leiFengStyle.buyRice();
+//        leiFengStyle.sweep();
+//        leiFengStyle.wash();
+//
         // DEMO 4
         /*
          * 需求：
